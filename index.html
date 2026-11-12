@@ -166,20 +166,22 @@
       background: var(--card-bg);
       border: 1px solid rgba(168, 85, 247, 0.3);
       border-radius: 20px;
-      padding: 4rem;
+      padding: 2rem;
       box-shadow: 0 0 30px var(--purple-glow);
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    .avatar-image-placeholder {
-      font-size: 4rem;
+    .avatar-card img {
+      max-width: 250px;
+      height: auto;
+      border-radius: 10px;
     }
 
     /* Seções Genéricas */
     .section-content {
-      padding: 8rem 4rem;
+      padding: 6rem 4rem;
       max-width: 1300px;
       margin: 0 auto;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -187,11 +189,47 @@
 
     .section-content h2 {
       font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-content > p {
+      color: var(--text-secondary);
+      margin-bottom: 3rem;
+    }
+
+    /* Grid de Projetos */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--purple-accent);
+      transform: translateY(-4px);
+    }
+
+    .project-card h3 {
+      font-size: 1.3rem;
       margin-bottom: 1rem;
     }
 
-    .section-content p {
+    .project-card p {
       color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
     }
   </style>
 </head>
@@ -226,7 +264,7 @@
 
     <div class="hero-avatar">
       <div class="avatar-card">
-        <img src="Chibi andre.png" alt="Ilustração de André Carlos" class="avatar-image-placeholder" />
+        <img src="Chibi andre.png" alt="Ilustração Chibi do Desenvolvedor">
       </div>
     </div>
   </section>
@@ -234,7 +272,27 @@
   <!-- Seção de Projetos -->
   <section id="projetos" class="section-content">
     <h2>Meus Projetos</h2>
-    <p>Aqui ficarão listados os seus trabalhos e aplicações.</p>
+    <p>Conheça alguns dos meus trabalhos e aplicações desenvolvidas.</p>
+    
+    <div class="projects-grid">
+      <!-- Card do Projeto 1 -->  
+      <div class="project-card">
+        <div>
+          <h3>App de Finanças Pessoais</h3>
+          <p>Aplicação web para gerenciar finanças pessoais com controle de despesas, receitas, gráficos de análise e metas financeiras organizadas.</p>
+        </div>
+        <a href="https://app-finan-as-pessoais.onrender.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Ver Projeto &rarr;</a>
+      </div>
+
+      <!-- Card do Projeto 2 -->  
+      <div class="project-card">
+        <div>
+          <h3>Cardápio QR Code</h3>
+          <p>Solução digital para restaurantes que permite aos clientes visualizar o cardápio e fazer pedidos direto pelo celular com agilidade.</p>
+        </div>
+        <a href="https://cardapioqrcode1.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Ver Projeto &rarr;</a>
+      </div>
+    </div>
   </section>
 
   <!-- Seção de Contato -->
