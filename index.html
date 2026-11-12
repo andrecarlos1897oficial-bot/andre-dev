@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>André Carlos | Dev Full Stack</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>André Carlos - Portfólio</title>
   <style>
     :root {
       --bg-color: #0b0b0e;
@@ -21,7 +20,6 @@
       padding: 0;
       box-sizing: border-box;
       font-family: 'Inter', sans-serif;
-      scroll-behavior: smooth;
     }
 
     body {
@@ -31,15 +29,22 @@
         linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
       background-size: 40px 40px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
     }
 
-    /* Header / Navbar */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1.5rem 4rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      background-color: var(--bg-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     .logo {
@@ -58,31 +63,30 @@
       font-size: 0.85rem;
       font-weight: 600;
       letter-spacing: 1px;
+      cursor: pointer;
       transition: color 0.2s;
     }
 
-    nav a:hover {
-      color: var(--text-primary);
+    nav a:hover, nav a.active {
+      color: var(--purple-accent);
     }
 
-    .badge-status {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--green-status);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
+    /* Sistema de Telas / Abas */
+    .page-section {
+      display: none; /* Ocultas por padrão */
+      flex: 1;
+      animation: fadeIn 0.3s ease-in-out;
     }
 
-    .dot {
-      width: 8px;
-      height: 8px;
-      background-color: var(--green-status);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--green-status);
+    .page-section.active {
+      display: flex; /* Exibe apenas a ativa */
     }
 
-    /* Hero Section */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .hero {
       display: flex;
       align-items: center;
@@ -90,6 +94,7 @@
       padding: 5rem 4rem;
       max-width: 1300px;
       margin: 0 auto;
+      width: 100%;
     }
 
     .hero-content {
@@ -123,7 +128,6 @@
       margin-bottom: 2rem;
     }
 
-    /* Botões */
     .hero-buttons {
       display: flex;
       gap: 1rem;
@@ -138,6 +142,7 @@
       letter-spacing: 1px;
       transition: transform 0.2s, background-color 0.2s;
       display: inline-block;
+      cursor: pointer;
     }
 
     .btn-primary {
@@ -161,7 +166,6 @@
       border-color: var(--text-primary);
     }
 
-    /* Avatar Card */
     .avatar-card {
       background: var(--card-bg);
       border: 1px solid rgba(168, 85, 247, 0.3);
@@ -179,25 +183,24 @@
       border-radius: 10px;
     }
 
-    /* Seções Genéricas */
     .section-content {
-      padding: 6rem 4rem;
+      padding: 5rem 4rem;
       max-width: 1300px;
       margin: 0 auto;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      width: 100%;
     }
 
     .section-content h2 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-bottom: 0.5rem;
     }
 
     .section-content > p {
       color: var(--text-secondary);
       margin-bottom: 3rem;
+      font-size: 1.1rem;
     }
 
-    /* Grid de Projetos */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -231,82 +234,133 @@
       line-height: 1.5;
       margin-bottom: 1.5rem;
     }
+
+    .contact-grid {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .contact-card:hover {
+      border-color: var(--purple-accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px var(--purple-glow);
+    }
+
+    .social-icon {
+      width: 24px !important;
+      height: 24px !important;
+      min-width: 24px;
+      min-height: 24px;
+      fill: var(--purple-accent);
+    }
   </style>
 </head>
 <body>
 
-  <!-- Menu de Navegação -->
+  <!-- Barra de Navegação Fixa -->
   <header class="navbar">
-    <div class="logo">&gt;_ ANDRÉ.DEV</div>
+    <div class="logo">ANDRE.DEV</div>
     <nav>
-      <a href="#sobre">SOBRE</a>
-      <a href="#projetos">PROJETOS</a>
-      <a href="#contato">CONTATO</a>
+      <a onclick="switchTab('home', this)" class="active">HOME</a>
+      <a onclick="switchTab('projects', this)">PROJETOS</a>
+      <a onclick="switchTab('contact', this)">CONTATO</a>
     </nav>
-    <div class="nav-right">
-      <span class="badge-status"><span class="dot"></span> OPEN TO WORK</span>
-    </div>
   </header>
 
-  <!-- Seção Principal (Hero / Sobre) -->
-  <section class="hero" id="sobre">
-    <div class="hero-content">
-      <p class="subtitle">FULL STACK • UI/UX</p>
-      <h1>DESENVOLVEDOR<br><span class="highlight">FULL STACK</span><br>& DESIGN</h1>
-      <p class="description">
-        Interfaces, APIs e aplicações — projetadas com foco em usabilidade, performance e qualidade.
-      </p>
-      <div class="hero-buttons">
-        <a href="#projetos" class="btn btn-primary">VER PROJETOS &rarr;</a>
-        <a href="#contato" class="btn btn-secondary">&gt;_ CONTATO</a>
+  <!-- SEÇÃO 1: HOME -->
+  <section id="home" class="page-section active">
+    <div class="hero">
+      <div class="hero-content">
+        <div class="subtitle">DESENVOLVEDOR FULL STACK</div>
+        <h1>TRANSFORMANDO IDEIAS EM <span class="highlight">CÓDIGO</span></h1>
+        <p class="description">
+          Construindo aplicações web modernas, limpas e eficientes com foco em performance e experiência de usuário.
+        </p>
+        <div class="hero-buttons">
+          <a onclick="switchTab('projects', document.querySelectorAll('nav a')[1])" class="btn btn-primary">Ver Projetos</a>
+          <a onclick="switchTab('contact', document.querySelectorAll('nav a')[2])" class="btn btn-secondary">Fale Comigo</a>
+        </div>
       </div>
-    </div>
-
-    <div class="hero-avatar">
       <div class="avatar-card">
-        <img src="Chibi andre.png" alt="Ilustração Chibi do Desenvolvedor">
+        <img src="Chibi andre.png" alt="Avatar Chibi do André">
       </div>
     </div>
   </section>
 
-  <!-- Seção de Projetos -->
-  <section id="projetos" class="section-content">
-    <h2>Meus Projetos</h2>
-    <p>Conheça alguns dos meus trabalhos e aplicações desenvolvidas.</p>
-    
-    <div class="projects-grid">
-      <!-- Card do Projeto 1 -->  
-      <div class="project-card">
-        <div>
-          <h3>App de Finanças Pessoais</h3>
-          <p>Aplicação web para gerenciar finanças pessoais com controle de despesas, receitas, gráficos de análise e metas financeiras organizadas.</p>
+  <!-- SEÇÃO 2: PROJETOS -->
+  <section id="projects" class="page-section">
+    <div class="section-content">
+      <h2>Meus Projetos</h2>
+      <p>Conheça alguns dos sistemas e aplicações desenvolvidos recentemente.</p>
+      
+      <div class="projects-grid">
+        <div class="project-card">
+          <div>
+            <h3>App de Finanças</h3>
+            <p>Gerenciador financeiro pessoal focado em controle de transações, gráficos interativos e agilidade.</p>
+          </div>
+          <a href="#" class="btn btn-secondary" style="align-self: flex-start;">Ver Repositório</a>
         </div>
-        <a href="https://app-finan-as-pessoais.onrender.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Ver Projeto &rarr;</a>
-      </div>
 
-      <!-- Card do Projeto 2 -->  
-      <div class="project-card">
-        <div>
-          <h3>Cardápio QR Code</h3>
-          <p>Solução digital para restaurantes que permite aos clientes visualizar o cardápio e fazer pedidos direto pelo celular com agilidade.</p>
+        <div class="project-card">
+          <div>
+            <h3>Cardápio QR Code</h3>
+            <p>Aplicação web dinâmica para estabelecimentos exibirem cardápios categorizados em tempo real.</p>
+          </div>
+          <a href="#" class="btn btn-secondary" style="align-self: flex-start;">Ver Repositório</a>
         </div>
-        <a href="https://cardapioqrcode1.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Ver Projeto &rarr;</a>
       </div>
     </div>
   </section>
 
-  <!-- Seção de Contato -->
-  <section id="contato" class="section-content">
-    <h2>Contato</h2>
-    <p>Vamos conectar? Entre em contato pelas redes sociais ou e-mail.</p>
-    
-    <div class="contact-grid" style="margin-top: 2rem;">
-      <a href="https://www.linkedin.com/in/andre-carlos-/" target="_blank" class="contact-card" aria-label="LinkedIn">
-        <svg class="social-icon" style="width: 24px; height: 24px; min-width: 24px; min-height: 24px; fill: #a855f7;" viewBox="0 0 24 24">
-          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-         </svg>
-      </a>
+  <!-- SEÇÃO 3: CONTATO -->
+  <section id="contact" class="page-section">
+    <div class="section-content">
+      <h2>Contato</h2>
+      <p>Vamos conectar? Acesse minhas redes profissionais ou envie uma mensagem.</p>
+      
+      <div class="contact-grid">
+        <a href="https://www.linkedin.com/in/andre-carlos-/" target="_blank" class="contact-card" aria-label="LinkedIn">
+          <svg class="social-icon" viewBox="0 0 24 24">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+      </div>
     </div>
   </section>
+
+  <!-- Script de Troca de Abas -->
+  <script>
+    function switchTab(sectionId, element) {
+      // Esconde todas as seções
+      const sections = document.querySelectorAll('.page-section');
+      sections.forEach(sec => sec.classList.remove('active'));
+
+      // Mostra apenas a seção clicada
+      document.getElementById(sectionId).classList.add('active');
+
+      // Atualiza o estado ativo no menu
+      const navLinks = document.querySelectorAll('nav a');
+      links.forEach(link => link.classList.remove('active'));
+      element.classList.add('active');
+    }
+  </script>
+
 </body>
 </html>
