@@ -341,7 +341,7 @@
     </div>
   </section>
 
-  <!-- Script de Troca de Abas Corrigido -->
+  <!-- Script de Troca de Abas Final -->
   <script>
     function switchTab(sectionId, element) {
       // Esconde todas as seções
@@ -351,9 +351,11 @@
       // Mostra apenas a seção clicada
       document.getElementById(sectionId).classList.add('active');
 
-      // Atualiza o estado ativo no menu corretamente
+      // Remove a classe 'active' de TODOS os links do menu (incluindo o HOME)
       const navLinks = document.querySelectorAll('nav a');
       navLinks.forEach(link => link.classList.remove('active'));
+
+      // Adiciona a classe 'active' apenas no botão clicado atualmente
       element.classList.add('active');
     }
   </script>
