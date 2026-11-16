@@ -168,20 +168,22 @@
     .avatar-card {
       background: var(--card-bg);
       border: 1px solid rgba(168, 85, 247, 0.3);
-      border-radius: 20px;
-      padding: 2rem;
+      border-radius: 50%;
+      width: 320px;
+      height: 320px;
+      padding: 10px;
       box-shadow: 0 0 30px var(--purple-glow);
       display: flex;
       justify-content: center;
       align-items: center;
+      overflow: hidden;
     }
 
     .avatar-card img {
-      max-width: 250px;
-      height: auto;
-      border-radius: 12px;
-      background: #ffffff;
-      padding: 10px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
     }
 
     .section-content {
@@ -296,7 +298,7 @@
         </div>
       </div>
       <div class="avatar-card">
-        <img src="Andre photo.svg" alt="Foto de Perfil do André">
+        <img src="Andre png.png" alt="Foto André Carlos">
       </div>
     </div>
   </section>
@@ -313,7 +315,7 @@
             <h3>App de Finanças</h3>
             <p>Gerenciador financeiro pessoal focado em controle de transações, gráficos interativos e agilidade.</p>
           </div>
-          <a href="https://app-finan-as-pessoais.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="align-self: flex-start;">Acessar Aplicação</a>
+          <a href="#" class="btn btn-secondary" style="align-self: flex-start;">Ver Repositório</a>
         </div>
 
         <div class="project-card">
@@ -321,23 +323,23 @@
             <h3>Cardápio QR Code</h3>
             <p>Aplicação web dinâmica para estabelecimentos exibirem cardápios categorizados em tempo real.</p>
           </div>
-          <a href="https://cardapioqrcode1.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="align-self: flex-start;">Acessar Aplicação</a>
-        </div>
-
-        <div class="project-card">
-          <div>
-            <h3>Controle de Estoque</h3>
-            <p>Sistema de gestão de estoque com controle de SKUs, movimentações, lotes por validade e dashboard.</p>
-          </div>
-          <a href="https://controle-de-estoque-1-uq2b.onrender.com" target="_blank" class="btn btn-secondary" style="align-self: flex-start;">Acessar Aplicação</a>
+          <a href="#" class="btn btn-secondary" style="align-self: flex-start;">Ver Repositório</a>
         </div>
 
         <div class="project-card">
           <div>
             <h3>TaskFlow</h3>
-            <p>Gerenciador ágil de tarefas e projetos com etapas, anotações, calendário interativo e métricas em tempo real.</p>
+            <p>Gerenciador de tarefas e projetos com interface interativa online.</p>
           </div>
-          <a href="https://taskflow-lilac-one.vercel.app/dashboard" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="align-self: flex-start;">Acessar Aplicação</a>
+          <a href="https://taskflow-lilac-one.vercel.app/dashboard" class="btn btn-secondary" style="align-self: flex-start;">Ver Aplicação</a>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <h3>Controle de Estoque</h3>
+            <p>Aplicação web para controle de estoque de estabelecimentos.</p>
+          </div>
+          <a href="https://controle-de-estoque-1-uq2b.onrender.com" class="btn btn-secondary" style="align-self: flex-start;">Ver Aplicação</a>
         </div>
       </div>
     </div>
