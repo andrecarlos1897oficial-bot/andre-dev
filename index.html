@@ -279,6 +279,11 @@
         padding: 1.2rem 1.5rem;
       }
 
+      /* Oculta o menu superior no celular, mantendo apenas a logo */
+      .navbar nav {
+        display: none !important;
+      }
+
       .hero {
         flex-direction: column-reverse;
         padding: 3rem 1.5rem;
@@ -358,7 +363,7 @@
             <h3>App de Finanças</h3>
             <p>Gerenciador financeiro pessoal focado em controle de transações, gráficos interativos e agilidade.</p>
           </div>
-          <a href="#" class="btn btn-secondary" style="align-self: flex-start;">Ver Repositório</a>
+          <a href="https://app-finan-as-pessoais.onrender.com/" target="_blank" class="btn btn-secondary" style="align-self: flex-start;">Ver Aplicação</a>
         </div>
 
         <div class="project-card">
@@ -366,7 +371,7 @@
             <h3>Cardápio QR Code</h3>
             <p>Aplicação web dinâmica para estabelecimentos exibirem cardápios categorizados em tempo real.</p>
           </div>
-          <a href="#" class="btn btn-secondary" style="align-self: flex-start;">Ver Repositório</a>
+          <a href="https://cardapioqrcode1.vercel.app/" target="_blank" class="btn btn-secondary" style="align-self: flex-start;">Ver Aplicação</a>
         </div>
 
         <div class="project-card">
@@ -410,13 +415,13 @@
       const sections = document.querySelectorAll('.page-section');
       sections.forEach(sec => sec.classList.remove('active'));
 
-      defaultSection = document.getElementById(sectionId);
-      if(defaultSection) defaultSection.classList.add('active');
+      const target = document.getElementById(sectionId);
+      if(target) target.classList.add('active');
 
       const navLinks = document.querySelectorAll('nav a');
       navLinks.forEach(link => link.classList.remove('active'));
 
-      element.classList.add('active');
+      if(element) element.classList.add('active');
     }
   </script>
 
