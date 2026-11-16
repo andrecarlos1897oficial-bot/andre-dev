@@ -94,6 +94,7 @@
       max-width: 1300px;
       margin: 0 auto;
       width: 100%;
+      gap: 3rem;
     }
 
     .hero-content {
@@ -130,6 +131,7 @@
     .hero-buttons {
       display: flex;
       gap: 1rem;
+      flex-wrap: wrap;
     }
 
     .btn {
@@ -169,8 +171,9 @@
       background: var(--card-bg);
       border: 1px solid rgba(168, 85, 247, 0.3);
       border-radius: 50%;
-      width: 320px;
-      height: 320px;
+      width: 280px;
+      height: 280px;
+      min-width: 280px;
       padding: 10px;
       box-shadow: 0 0 30px var(--purple-glow);
       display: flex;
@@ -206,7 +209,7 @@
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
 
@@ -268,6 +271,46 @@
       min-width: 24px;
       min-height: 24px;
       fill: var(--purple-accent);
+    }
+
+    /* RESPONSIVIDADE PARA CELULARES E TABLETS */
+    @media (max-width: 900px) {
+      .navbar {
+        padding: 1.2rem 1.5rem;
+      }
+
+      .hero {
+        flex-direction: column-reverse;
+        padding: 3rem 1.5rem;
+        text-align: center;
+        gap: 2.5rem;
+      }
+
+      .hero-content {
+        max-width: 100%;
+      }
+
+      .hero-content h1 {
+        font-size: 2.3rem;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .avatar-card {
+        width: 220px;
+        height: 220px;
+        min-width: 220px;
+      }
+
+      .section-content {
+        padding: 3rem 1.5rem;
+      }
+
+      .section-content h2 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
@@ -331,7 +374,7 @@
             <h3>TaskFlow</h3>
             <p>Gerenciador de tarefas e projetos com interface interativa online.</p>
           </div>
-          <a href="https://taskflow-lilac-one.vercel.app/dashboard" class="btn btn-secondary" style="align-self: flex-start;">Ver Aplicação</a>
+          <a href="https://taskflow-lilac-one.vercel.app/dashboard" target="_blank" class="btn btn-secondary" style="align-self: flex-start;">Ver Aplicação</a>
         </div>
 
         <div class="project-card">
@@ -339,7 +382,7 @@
             <h3>Controle de Estoque</h3>
             <p>Aplicação web para controle de estoque de estabelecimentos.</p>
           </div>
-          <a href="https://controle-de-estoque-1-uq2b.onrender.com" class="btn btn-secondary" style="align-self: flex-start;">Ver Aplicação</a>
+          <a href="https://controle-de-estoque-1-uq2b.onrender.com" target="_blank" class="btn btn-secondary" style="align-self: flex-start;">Ver Aplicação</a>
         </div>
       </div>
     </div>
@@ -364,18 +407,15 @@
   <!-- Script de Troca de Abas Final -->
   <script>
     function switchTab(sectionId, element) {
-      // Esconde todas as seções
       const sections = document.querySelectorAll('.page-section');
       sections.forEach(sec => sec.classList.remove('active'));
 
-      // Mostra apenas a seção clicada
-      document.getElementById(sectionId).classList.add('active');
+      defaultSection = document.getElementById(sectionId);
+      if(defaultSection) defaultSection.classList.add('active');
 
-      // Remove a classe 'active' de TODOS os links do menu (incluindo o HOME)
       const navLinks = document.querySelectorAll('nav a');
       navLinks.forEach(link => link.classList.remove('active'));
 
-      // Adiciona a classe 'active' apenas no botão clicado atualmente
       element.classList.add('active');
     }
   </script>
