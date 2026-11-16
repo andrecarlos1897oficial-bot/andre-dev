@@ -272,9 +272,9 @@ nav a:hover, nav a.active {
     padding: 1.2rem 1.5rem;
   }
 
-  /* Oculta os botões de navegação no topo no mobile */
+  /* Oculta os botões do topo no mobile, exibindo apenas a logo */
   .navbar nav {
-    display: none;
+    display: none !important;
   }
 
   .hero {
